@@ -22,6 +22,7 @@ def index(request):
         'category': Category.objects.all(),
         'forms': BookForm(),
         'categoryies' : CategoryForms(),
+        'allbooks' : Books.objects.filter(active=True).count(),
     }
     
     return render(request , 'pages/index.html' , context=context)
