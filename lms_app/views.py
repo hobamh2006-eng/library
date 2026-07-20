@@ -23,6 +23,9 @@ def index(request):
         'forms': BookForm(),
         'categoryies' : CategoryForms(),
         'allbooks' : Books.objects.filter(active=True).count(),
+        'booksold' : Books.objects.filter(status='sold').count(),
+        'bookrented' : Books.objects.filter(status='rented').count(),
+        'bookavailable' : Books.objects.filter(status='available').count(),
     }
     
     return render(request , 'pages/index.html' , context=context)
